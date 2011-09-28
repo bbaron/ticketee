@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   def index
+    @projects = Project.all
   end
 
   def new
@@ -7,7 +8,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    p params
     @project = Project.new(params[:project])
     if @project.save
       flash[:notice] = "Project has been created."
